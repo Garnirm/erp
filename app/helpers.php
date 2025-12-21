@@ -2,7 +2,6 @@
 
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 function getUserIp(): string
@@ -13,16 +12,25 @@ function getUserIp(): string
 
     foreach ($keys as $k) {
         if (isset($_SERVER[ $k ])) {
-            return $_SERVER[ $k ];
+            /** @var string $data_server */
+            $data_server = $_SERVER[ $k ];
+
+            return $data_server;
         }
     }
 
     return '';
 }
 
+/**
+ * @param array<mixed> $params
+ */
 function log_user_error(array $params): void
 {
-    Log::channel('user_error')->info(json_encode($params));
+    /** @var non-empty-string $encode_params */
+    $encode_params = json_encode($params);
+
+    Log::channel('user_error')->info($encode_params);
 }
 
 function getDateFirstMondayOfMonth(): Carbon
@@ -43,6 +51,7 @@ function getWorkableDaysOfMonth(Carbon $start_date, bool $included_saturday = fa
 
 function getWorkableDaysOfPeriod(Carbon $start_date, Carbon $end_date, bool $included_saturday = false): int
 {
+    /** @var CarbonPeriod<Carbon> $period */
     $period = CarbonPeriod::create($start_date, $end_date);
 
     $working_days = 0;

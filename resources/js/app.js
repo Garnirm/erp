@@ -1,43 +1,54 @@
-import { createApp } from 'vue'
+import { createApp, h } from 'vue'
+import { createInertiaApp } from '@inertiajs/vue3'
+import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
 
-import 'tippy.js/dist/tippy.css'
-
-import ApexCharts from 'vue3-apexcharts'
-import Tippy from 'vue-tippy'
-import Toaster from '@meforma/vue-toaster'
-
-import Layout from './components/Layout.vue'
-
-import i18n from './i18n/app'
-import routes from './routes/app'
-import store from './store/app'
+//import ApexCharts from 'vue3-apexcharts'
 
 import { EventEmitter } from 'events'
 import axios from 'axios'
+
+import GuestLayout from './Layouts/GuestLayout.vue'
 
 EventEmitter.defaultMaxListeners = 1000
 
 window.EventBus = new EventEmitter()
 
+window.csrf_token = document.head.querySelector('meta[name="csrf-token"]').content
+
 window.axios = axios
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
-window.axios.defaults.headers.common['X-CSRF-TOKEN'] = document.head.querySelector('meta[name="csrf-token"]').content
+window.axios.defaults.headers.common['X-CSRF-TOKEN'] = csrf_token
 
-var app = createApp({})
+createInertiaApp({
+    title: (title) => `${title} - ERP`,
 
-app.config.devtools = false
-app.config.performance = true
+    resolve: async (name) => {
+        let page = await resolvePageComponent(
+            `./Pages/${name}.vue`,
+            import.meta.glob('./Pages/**/*.vue'),
+        )
 
-app.use(i18n)
-app.use(routes)
-app.use(store)
+        if (typeof page.default.layout === 'undefined') {
+            if (name.startsWith('Guest/')) {
+                page.default.layout = GuestLayout
+            } else {
+                page.default.layout = AppLayout
+            }
+        }
 
-app.use(ApexCharts)
-app.use(Tippy, { directive: 'tippy', component: 'tippy', defaultProps: { placement: 'auto-end', allowHTML: false } })
-app.use(Toaster, { position: 'top-right', duration: 3000 })
+        return page
+    },
 
-app.component('layout', Layout)
+    setup({ el, App, props, plugin }) {
+        return createApp({ render: () => h(App, props) })
+            .use(plugin)
+            .provide('csrf_token', csrf_token)
+            //.use(ApexCharts)
+            .mount(el)
+    },
 
-app.mount('#app')
-
-window.Vue = app
+    progress: {
+        color: '#4f46e5', 
+        showSpinner: true,
+    },
+})

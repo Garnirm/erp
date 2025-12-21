@@ -12,7 +12,7 @@ return [
             'options' => [
                 'cluster' => null,
                 'encrypted' => false,
-                'host' => env('SOCKET_HOST', 'socket.gifrane.dra'),
+                'host' => env('SOCKET_HOST', ''),
                 'port' => 6001,
                 'scheme' => 'http',
             ],

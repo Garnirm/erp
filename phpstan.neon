@@ -1,5 +1,6 @@
 includes:
     - ./vendor/larastan/larastan/extension.neon
+    - ./vendor/nesbot/carbon/extension.neon
 
 parameters:
     paths:
@@ -8,5 +9,3 @@ parameters:
     level: 10
 
     ignoreErrors:
-
-    checkMissingIterableValueType: false

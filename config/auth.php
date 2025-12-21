@@ -2,7 +2,7 @@
 
 return [
     'defaults' => [
-        'guard' => 'auth',
+        'guard' => 'web',
         'passwords' => 'users',
     ],
 
@@ -10,11 +10,6 @@ return [
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
-        ],
-
-        'auth' => [
-            'driver' => 'session',
-            'provider' => 'auth',
         ],
 
         'api' => [
@@ -25,9 +20,6 @@ return [
     ],
 
     'providers' => [
-        'auth' => [
-            'driver' => 'auth',
-        ],
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Domains\User\Models\User::class,

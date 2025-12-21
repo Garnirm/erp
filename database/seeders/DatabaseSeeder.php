@@ -13,6 +13,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([]);
+        $this->call([
+            I18nCountrySeeder::class,
+            I18nTimezoneSeeder::class,
+            I18nLangSeeder::class,
+            /*ModuleSeeder::class,
+            PermissionSeeder::class,
+            EmployeeContractTypeSeeder::class,
+            EmployeeCollectiveAgreementSeeder::class,
+            HrisLeaveTypeSeeder::class,
+            AssetCategorySeeder::class,*/
+        ]);
     }
 }

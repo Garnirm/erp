@@ -12,7 +12,10 @@ export default defineConfig({
         },
     },
     plugins: [
-        laravel([]),
+        laravel([
+            'resources/js/app.js',
+            'resources/scss/app.scss',
+        ]),
         vue({
             template: {
                 transformAssetUrls: {
@@ -27,7 +30,7 @@ export default defineConfig({
         alias: {
             '@': '/resources/js',
             '@cmp': '/resources/js/components',
-            '@sass': '/resources/sass',
+            '@scss': '/resources/scss',
             'vue': 'vue/dist/vue.esm-bundler.js',
         }
     },
