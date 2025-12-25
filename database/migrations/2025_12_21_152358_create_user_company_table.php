@@ -23,6 +23,7 @@ return new class extends Migration
             $table->foreign('company_id')->references('id')->on('company')->onDelete('cascade');
 
             $table->string('function', 150)->nullable();
+            $table->boolean('active');
         });
     }
 

@@ -29,8 +29,6 @@ return new class extends Migration
             $table->string('postal_code', 8)->nullable();
             $table->string('siret')->nullable();
             $table->string('ape_code', 50)->nullable();
-
-            $table->timestamps();
         });
     }
 

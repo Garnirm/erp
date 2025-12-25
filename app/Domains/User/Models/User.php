@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Hash;
  * @property int $i18n_timezone_id
  * @property string $email
  * @property string $password
+ * @property string $firstname
+ * @property string $lastname
  * @property string $fullname_first
  * @property string $fullname_last
  * @property string $avatar

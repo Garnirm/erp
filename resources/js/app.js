@@ -7,6 +7,7 @@ import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
 import { EventEmitter } from 'events'
 import axios from 'axios'
 
+import AppLayout from './Layouts/AppLayout.vue'
 import GuestLayout from './Layouts/GuestLayout.vue'
 
 EventEmitter.defaultMaxListeners = 1000

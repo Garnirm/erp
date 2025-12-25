@@ -28,5 +28,8 @@ abstract class TestCase extends BaseTestCase
         DB::table('account')->where('name', 'Client test')->delete();
 
         DB::disconnect();
+
+        restore_error_handler();
+        restore_exception_handler();
     }
 }

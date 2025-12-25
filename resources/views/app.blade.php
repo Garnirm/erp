@@ -6,6 +6,8 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="robots" content="noindex, nofollow">
 
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
         <title inertia>ERP</title>
 
         @vite(['resources/scss/app.scss', 'resources/js/app.js'])
