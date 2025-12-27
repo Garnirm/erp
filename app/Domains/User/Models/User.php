@@ -28,6 +28,7 @@ use Illuminate\Support\Facades\Hash;
  * @property string $date_format
  * @property bool $active
  * @property null|Carbon $enabled_at
+ * @property Carbon $updated_at
  * 
  * @property-read I18nLang $lang
  */

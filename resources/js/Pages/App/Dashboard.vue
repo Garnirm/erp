@@ -92,24 +92,6 @@ export default {
 </script>
 
 <style scoped>
-.custom-scroll::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-}
-
-.custom-scroll::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.custom-scroll::-webkit-scrollbar-thumb {
-    background-color: var(--color-slate-300);
-    border-radius: 10px;
-}
-
-.custom-scroll::-webkit-scrollbar-thumb:hover {
-    background-color: var(--color-slate-400);
-}
-
 .main-scroll-area {
     flex: 1;
     overflow-y: auto;
