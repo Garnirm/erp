@@ -18,7 +18,7 @@ class LoginPostTest extends TestCase
 
         $request = $this->post('/login', [ 'email' => 'test@test.com', 'password' => 'test' ]);
         $request->assertStatus(302);
-        $request->assertLocation(env('APP_URL'));
+        $request->assertLocation('/');
     }
 
     public function test_login_with_wrong_credentials(): void
@@ -30,6 +30,6 @@ class LoginPostTest extends TestCase
 
         $request = $this->post('/login', [ 'email' => 'test@test.com', 'password' => 'testt' ]);
         $request->assertStatus(302);
-        $request->assertLocation(env('APP_URL').'/login?status=failed_connection');
+        $request->assertLocation('/login?status=failed_connection');
     }
 }

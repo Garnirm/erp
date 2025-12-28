@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Domains\User\Controllers;
+namespace App\Domains\User\Controllers\Settings;
 
 use App\Domains\User\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class SettingsProfileController
+class ProfileController
 {
     public function __invoke(): Response
     {

@@ -12,12 +12,4 @@ class SettingsProfileSaveData extends Data
     )
     {
     }
-
-    public function toArray(): array
-    {
-        return [
-            'firstname' => $this->firstname,
-            'lastname' => $this->lastname,
-        ];
-    }
 }

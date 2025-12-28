@@ -4,7 +4,7 @@
 
         <p class="section-desc">
             Gérez vos informations personnelles.<br>
-            <span class="text-xs text-slate-400">Dernière mise à jour : {{ last_update }}</span>
+            <span class="text-slate-400">Dernière mise à jour : {{ last_update }}</span>
         </p>
 
         <div class="info-box">
@@ -14,7 +14,7 @@
 
             <div>
                 <p><strong>Information Importante</strong></p>
-                <p style="margin-top:0.25rem;">Les informations ci-dessous sont synchronisées avec votre fiche employé dans le module SIRH. Toute modification sera visible par votre manager et l'équipe RH.</p>
+                <p style="margin-top: 0.25rem;">Les informations ci-dessous sont synchronisées avec votre fiche employé dans le module SIRH. Toute modification sera visible par votre manager et l'équipe RH.</p>
             </div>
         </div>
 

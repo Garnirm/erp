@@ -97,8 +97,8 @@ body {
     inset: 0;
     background: linear-gradient(
         135deg, 
-        var(--client-secondary) 0%, 
-        var(--client-primary) 100%
+        var(--color-slate-900) 0%, 
+        var(--color-primary-600) 100%
     );
     opacity: 0.85;
     mix-blend-mode: multiply;
@@ -155,7 +155,7 @@ body {
 .company-logo {
     width: 3rem;
     height: 3rem;
-    background-color: var(--client-primary);
+    background-color: var(--color-primary-600);
     color: white;
     border-radius: var(--radius-lg);
     display: flex;
@@ -204,8 +204,8 @@ h1 {
 }
 
 .form-input:focus {
-    border-color: var(--client-primary);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--client-primary), transparent 85%);
+    border-color: var(--color-primary-600);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary-600), transparent 85%);
 }
 
 .password-wrapper {
@@ -240,13 +240,13 @@ h1 {
 
 .checkbox-input {
     width: 1rem; height: 1rem;
-    accent-color: var(--client-primary);
+    accent-color: var(--color-primary-600);
     cursor: pointer;
 }
 
 .link {
     font-size: 0.875rem; font-weight: 500;
-    color: var(--client-primary);
+    color: var(--color-primary-600);
     text-decoration: none;
 }
 
@@ -257,7 +257,7 @@ h1 {
 .btn-submit {
     width: 100%;
     padding: 0.75rem;
-    background-color: var(--client-primary);
+    background-color: var(--color-primary-600);
     color: white;
     border: none;
     border-radius: var(--radius-lg);

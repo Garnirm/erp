@@ -5,6 +5,8 @@ includes:
 parameters:
     paths:
         - app
+        - bootstrap/app.php
+        - tests
 
     level: 10
 

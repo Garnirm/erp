@@ -278,6 +278,12 @@ export default {
         }
     },
 
+    watch: {
+        '$page.url': function (new_url) {
+            this.active_page = '/'+(new_url.split('/')[1] ?? '')
+        },
+    },
+
     created: function () {
         this.active_page = '/'+(this.$page.url.split('/')[1] ?? '')
     },

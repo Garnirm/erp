@@ -17,6 +17,6 @@ class LogoutTest extends TestCase
 
         $request = $this->actingAs($user)->get('/logout');
         $request->assertStatus(302);
-        $request->assertLocation(env('APP_URL').'/login');
+        $request->assertLocation('/login');
     }
 }

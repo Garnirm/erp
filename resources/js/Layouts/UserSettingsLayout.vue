@@ -11,31 +11,31 @@
                 Mon Profil
             </Link>
 
-            <a href="#appearance" class="settings-link" :class="{ active: active_page === '/user/settings/appearance' }">
+            <Link href="/user/settings/appearance" class="settings-link" :class="{ active: active_page === '/user/settings/appearance' }">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
                 </svg>
 
                 Apparence
-            </a>
+            </Link>
 
             <div class="settings-group-title">Accès</div>
 
-            <a href="#security" class="settings-link" :class="{ active: active_page === '/user/settings/security' }">
+            <Link href="/user/settings/security" class="settings-link" :class="{ active: active_page === '/user/settings/security' }">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                 </svg>
 
                 Sécurité & Connexion
-            </a>
+            </Link>
     
-            <a href="#notifications" class="settings-link" :class="{ active: active_page === '/user/settings/notifications' }">
+            <Link href="/user/settings/notifications" class="settings-link" :class="{ active: active_page === '/user/settings/notifications' }">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
                 </svg>
 
                 Notifications
-            </a>
+            </Link>
         </nav>
 
         <div class="settings-content custom-scroll">
@@ -56,6 +56,12 @@ export default {
         return {
             active_page: null,
         }
+    },
+
+    watch: {
+        '$page.url': function (new_url) {
+            this.active_page = new_url
+        },
     },
 
     created: function () {
